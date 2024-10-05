@@ -1,0 +1,578 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="zxx">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Cleanfreshly a Home Maintenance & Service Category Bootstrap Responsive Web Template | Home :: W3layouts
+	</title>
+	{% load static %}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Template CSS -->
+	<link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
+	<!-- Template CSS -->
+	<link href="//fonts.googleapis.com/css?family=Josefin+Sans:400,400i,500,600,700&display=swap"
+		rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Lato:300,400,400i,700&display=swap" rel="stylesheet">
+	<!-- Template CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+	<!--w3l-header-->
+	<section class="w3l-top-header-content">
+		<div class="hny-top-menu">
+			<div class="container">
+				<div class="row">
+					<ul class="accounts col-sm-8">
+<!--						<li class="top_li"><span class="fa fa-clock-o"></span> <a href="#">Monday - Friday: 10:00 - -->
+<!--								18:00</a>-->
+<!--						</li>-->
+						<li class="top_li mr-lg-0"><span class="fa fa-envelope-o"></span>
+							<a href="mailto:eventmanageemail1@gmail.com" class="mail"> eventmanageemail1@gmail.com</a>
+						</li>
+						<li class="top_li"><span class="fa fa-phone"></span>
+							<a href="tel:+917994428566">+917994428566</a>
+						</li>
+
+					</ul>
+					<ul class="social-top col-sm-4">
+						<li><a href="https://www.facebook.com/login.php/"><span class="fab fa-facebook"></span></a></li>
+						<li><a href="https://www.instagram.com/accounts/login/?hl=en"><span class="fab fa-instagram"></span></a> </li>
+						<li><a href="https://twitter.com/login"><span class="fab fa-twitter"></span></a></li>
+						<li><a href="https://vimeo.com/log_in"><span class="fab fa-vimeo"></span></a> </li>
+						<li>
+							<a href="https://www.linkedin.com/login">
+								<span class="fab fa-linkedin"></span>
+							</a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--//top-header-content-->
+	<header class="w3l-header-nav">
+		<!--/nav-->
+		<nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
+			<div class="container">
+				<h1><a class="navbar-brand" href="index.html">Event<span>Master</span></a></h1>
+				<!-- if logo is image enable this
+						<a class="navbar-brand" href="#index.html">
+							<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+						</a> -->
+				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<!-- <span class="navbar-toggler-icon"></span> -->
+					<span class="fa icon-expand fa-bars"></span>
+					<span class="fa icon-close fa-times"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="adminhome">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="venues">Venues</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="events">Events</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="logout">Logout</a>
+						</li>
+						<li class="nav-item">
+					</ul>
+<!--					<a href="#" class="ml-lg-3 mt-lg-0 mt-3 book btn btn-secondary btn-style">Get started</a>-->
+				</div>
+			</div>
+		</nav>
+		<!--//nav-->
+	</header>
+	<!-- //w3l-header -->
+	<!--banner-slider-->
+	<!-- main-slider -->
+
+    {%if messages%}
+		<div class="alert alert-success alert-dismissible">
+		{%for i in messages%}
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong> {{i}}</strong>
+		{%endfor%}
+		</div>
+	{%endif%}
+
+	<p style="display: none;">
+-----------------------------------------------ADMIN BODY START-----------------------------------------------------------------------
+	</p>
+
+	<div class="container my-5">
+    <h1 class="text-center mb-4">Events</h1>
+
+    <!-- Current Events -->
+    <h2 class="text-center mb-4">Ongoing Events</h2>
+    {% if len1 == 0 %}
+    <h4 class="text-center mb-4">None</h4>
+    {% endif %}
+    <div id="eventsnow-container">
+        {% for event in events %}
+        {% if event.start <= now and event.end >= now %}
+        <div class="event-item">
+            <div class="event-image">
+                <img src="{{ event.image.url }}" alt="{{ event.name }}">
+            </div>
+
+            <div class="event-details">
+                <a href="{% url 'singleeventadmin' d=event.id %}"><h5>{{ event.name }}</h5></a>
+                <p>
+                    <strong>Category:</strong> {{ event.category.name }}<br>
+                    <strong>Venue:</strong> {{ event.venue.name }}<br>
+                    <strong>Location:</strong> {{ event.venue.location }}<br>
+                    <strong>Ticket Price:</strong> ₹{{ event.ticketprice }}<br>
+                    <strong>Start:</strong> {{ event.start|date:"d M Y, h:i A" }}<br>
+                    <strong>End:</strong> {{ event.end|date:"d M Y, h:i A" }}
+                </p>
+
+                <div class="status-section">
+                    {% if event.approvedbyadmin %}
+                    <label>Approved</label>
+                    {% else %}
+                    <label>Not approved</label>
+                    <button class="btn btn-secondary" disabled>Not approved</button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+        <br>
+        <br>
+
+    <!-- Upcoming Events -->
+    <h2 class="text-center mb-4">Upcoming Events</h2>
+    {% if len2 == 0 %}
+    <h4>None</h4>
+    {% endif %}
+
+    <form id="event-filter-form" class="filter-form">
+        <select id="status-dropdown" class="filter-dropdown">
+            <option value="any">Any Status</option>
+            {% for status in status_values %}
+            <option value="{{ status }}">{{ status }}</option>
+            {% endfor %}
+        </select>
+
+        <select id="organizer-dropdown" class="filter-dropdown">
+            <option value="any">Any Organizer</option>
+            {% for organizer in organizers %}
+            <option value="{{ organizer.id }}">{{ organizer.name }}</option>
+            {% endfor %}
+        </select>
+
+        <select id="category-dropdown" class="filter-dropdown">
+            <option value="any">Any Category</option>
+            {% for category in categories %}
+            <option value="{{ category.id }}">{{ category.name }}</option>
+            {% endfor %}
+        </select>
+
+        <select id="venue-dropdown" class="filter-dropdown">
+            <option value="any">Any Venue</option>
+            {% for venue in venues %}
+            <option value="{{ venue.id }}">{{ venue.name }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="date" id="start-date" class="filter-dropdown">
+    </form>
+
+    <div id="events-container">
+        {% for event in events %}
+        {% if event.start > now %}
+        <div class="event-item" data-status="{{ event.status }}" data-organizer-id="{{ event.organizer.id }}" data-category-id="{{ event.category.id }}" data-venue-id="{{ event.venue.id }}" data-start-date="{{ event.start.date }}">
+            <div class="event-image">
+                <img src="{{ event.image.url }}" alt="{{ event.name }}">
+            </div>
+
+            <div class="event-details">
+                <a href="{% url 'singleeventadmin' d=event.id %}"><h5>{{ event.name }}</h5></a>
+                <p>
+                    <strong>Category:</strong> {{ event.category.name }}<br>
+                    <strong>Venue:</strong> {{ event.venue.name }}<br>
+                    <strong>Location:</strong> {{ event.venue.location }}<br>
+                    <strong>Ticket Price:</strong> ₹{{ event.ticketprice }}<br>
+                    <strong>Start:</strong> {{ event.start|date:"d M Y, h:i A" }}<br>
+                    <strong>End:</strong> {{ event.end|date:"d M Y, h:i A" }}
+                </p>
+
+                <div class="status-section">
+                    {% if event.status == 'pending' %}
+                    <label>Pending</label>
+                    <a href="{% url 'rejectevent' d=event.id %}">
+                        <button>Reject</button>
+                    </a>
+                    <a href="{% url 'approveevent' d=event.id %}">
+                        <button>Approve</button>
+                    </a>
+
+                    {% elif event.status == 'rejected' %}
+                    <label>Rejected</label>
+
+                    {% elif event.status == 'approved' %}
+                    <label>Approved</label>
+                    {% if not event.payed %}
+                    <a href="{% url 'rejectevent' d=event.id %}">
+                        <button>Reject</button>
+                    </a>
+                    {% endif %}
+
+                    {% elif event.status == 'cancelled' %}
+                    <label>Cancelled</label>
+                    {% endif %}
+
+                    {% if event.payed %}
+                    <label>Paid</label>
+                    {% else %}
+                    <label>Not Paid</label>
+                    {% endif %}
+                </div>
+
+                <div class="status-reason">
+                    <label>{{ event.statusreason }}</label>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+        <br>
+        <br>
+
+    <!-- Old Events -->
+    <h2 class="text-center mb-4">Old Events</h2>
+    {% if len3 == 0 %}
+    <h4 class="text-center mb-4">None</h4>
+    {% endif %}
+    <div id="oldevents-container">
+        {% for event in events %}
+        {% if event.end < now %}
+        <div class="event-item">
+            <div class="event-image">
+                <img src="{{ event.image.url }}" alt="{{ event.name }}">
+            </div>
+
+            <div class="event-details">
+                <a href="{% url 'singleeventadmin' d=event.id %}"><h5>{{ event.name }}</h5></a>
+                <p>
+                    <strong>Category:</strong> {{ event.category.name }}<br>
+                    <strong>Venue:</strong> {{ event.venue.name }}<br>
+                    <strong>Location:</strong> {{ event.venue.location }}<br>
+                    <strong>Ticket Price:</strong> ₹{{ event.ticketprice }}<br>
+                    <strong>Start:</strong> {{ event.start|date:"d M Y, h:i A" }}<br>
+                    <strong>End:</strong> {{ event.end|date:"d M Y, h:i A" }}
+                </p>
+
+                <div class="status-section">
+                    {% if event.approvedbyadmin %}
+                    <label>Approved</label>
+                    {% else %}
+                    <label>Event Over</label>
+                    <button class="btn btn-secondary" disabled>Event Over</button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+
+		// Get the filter elements
+		const statusDropdown = document.getElementById('status-dropdown');
+		const organizerDropdown = document.getElementById('organizer-dropdown');
+		const categoryDropdown = document.getElementById('category-dropdown');
+		const venueDropdown = document.getElementById('venue-dropdown');
+		const startDateInput = document.getElementById('start-date');
+
+		const today = new Date().toISOString().split('T')[0];
+
+        // Set the minimum attribute of the date input to today's date
+        document.getElementById('start-date').setAttribute('min', today);
+
+
+		// Add event listeners for change in any filter
+		const filterElements = [statusDropdown, organizerDropdown, categoryDropdown, venueDropdown, startDateInput];
+
+		filterElements.forEach(element => {
+			element.addEventListener('change', filterEvents);
+		});
+
+		function filterEvents() {
+			const selectedStatus = statusDropdown.value;
+			const selectedOrganizer = organizerDropdown.value;
+			const selectedCategory = categoryDropdown.value;
+			const selectedVenue = venueDropdown.value;
+			const selectedStartDate = startDateInput.value;  // This is in 'YYYY-MM-DD' format
+
+
+			// Get all event items
+			const eventItems = document.querySelectorAll('.event-item');
+
+			eventItems.forEach(event => {
+				const eventStatus = event.getAttribute('data-status');
+				const eventOrganizer = event.getAttribute('data-organizer-id');
+				const eventCategory = event.getAttribute('data-category-id');
+				const eventVenue = event.getAttribute('data-venue-id');
+				const eventStartDateString = event.getAttribute('data-start-date');
+				const eventStartDatee = new Date(eventStartDateString);
+
+				// Adjust for local time by getting the local date components
+				const year = eventStartDatee.getFullYear();
+				const month = ('0' + (eventStartDatee.getMonth() + 1)).slice(-2); // Months are zero-indexed
+				const day = ('0' + eventStartDatee.getDate()).slice(-2); // Add leading zero
+
+				const eventStartDate = `${year}-${month}-${day}`; // Format as YYYY:MM:DD
+
+				let isVisible = true;
+
+				// Check status filter
+				if (selectedStatus !== 'any' && eventStatus !== selectedStatus) {
+					isVisible = false;
+				}
+
+				// Check organizer filter
+				if (selectedOrganizer !== 'any' && eventOrganizer !== selectedOrganizer) {
+					isVisible = false;
+				}
+
+				// Check category filter
+				if (selectedCategory !== 'any' && eventCategory !== selectedCategory) {
+					isVisible = false;
+				}
+
+				// Check venue filter
+				if (selectedVenue !== 'any' && eventVenue !== selectedVenue) {
+					isVisible = false;
+				}
+
+				// Check start date filter
+				if (selectedStartDate !== '' && eventStartDate !== selectedStartDate) {
+					isVisible = false;
+				}
+
+				// Show or hide the event item
+				event.style.display = isVisible ? 'block' : 'none';
+			});
+    	}
+	});
+
+	</script>
+
+	<!-- Include Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+<p style="display: none;">
+--------------------------------------ADMIN BODY ENDS------------------------------------------------------------------
+</p>
+
+
+    <!-- footer-66 -->
+	<footer class="w3l-footer-66">
+		<div class="footer-28-main">
+			<div class="container">
+				<div class="row footer-hny-top">
+					<div class="col-lg-6 footer-logo pl-lg-0">
+						<h2><a class="navbar-brand" href="index.html">Event<span>Master</span></a></h2>
+						<!-- if logo is image enable this
+						<a class="navbar-brand" href="#index.html">
+							<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+						</a> -->
+					</div>
+					<div class="col-lg-6 main-social-footer-28 pr-lg-0">
+						<a href="https://www.facebook.com/login.php/"><span class="fab fa-facebook"></a>
+						<a href="https://twitter.com/login"><span class="fab fa-twitter"></a>
+						<a href="https://accounts.google.co.in/"><span class="fab fa-google-plus"></a>
+						<a href="https://www.linkedin.com/login"><span class="fab fa-linkedin"></a>
+						<a href="https://www.instagram.com/accounts/login/?hl=en"><span class="fab fa-instagram"></a>
+					</div>
+				</div>
+				<div class="row footer-top-28">
+					<div class="col-lg-2 col-md-6 footer-list-28 pl-lg-0">
+						<h6 class="footer-title-28">Extra Links</h6>
+						<ul>
+							<li><a href="about.html">About Company</a></li>
+							<li><a href="services.html">Our Services</a></li>
+							<li><a href="portfolio.html">Recent projects list</a></li>
+							<li><a href="blog.html">Latest News blog</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-5 col-md-6 footer-list-28">
+						<h6 class="footer-title-28">list of Services</h6>
+						<ul class="d-grid footer-column-2">
+							<li><a href="services.html">Venue Booking</a></li>
+							<li><a href="services.html">Vendor Management</a></li>
+							<li><a href="services.html">Event Promotion</a></li>
+							<li><a href="services.html">Ticketing and Registration</a></li>
+							<li><a href="services.html">Schedule Management</a></li>
+							<li><a href="services.html">Attendee Engagement</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-2 col-md-6 footer-list-28">
+						<h6 class="footer-title-28">Support</h6>
+						<ul>
+							<li><a href="#link">Documentation</a></li>
+							<li><a href="#link">Privacy policy</a></li>
+							<li><a href="#link">Terms of service</a></li>
+							<li><a href="#link">24/7 support</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-3 col-md-6 footer-list-28 pr-lg-0">
+<!--						<h6 class="footer-title-28">Working Hours</h6>-->
+<!--						<ul class="working-hours">-->
+<!--							<li><span>Monday</span> : 8AM - 6AM</li>-->
+<!--							<li><span>Tuesday</span> : 8AM - 6AM</li>-->
+<!--							<li><span>Wednesday</span> : 8AM - 6AM</li>-->
+<!--							<li><span>Thursday - Friday </span> : 8AM - 6AM</li>-->
+<!--							<li><span>Sunday</span> : Closed</li>-->
+<!--						</ul>-->
+					</div>
+				</div>
+			</div>
+			<div class="midd-footer-28 align-center">
+				<p class="copy-footer-28">© 2020 EventMaster. All rights reserved | Designed by <a
+						href="https://w3layouts.com">W3layouts</a></p>
+			</div>
+		</div>
+		<!-- move top -->
+		<button onclick="topFunction()" id="movetop" title="Go to top">
+			<span class="fa fa-angle-up"></span>
+		</button>
+		<script>
+			// When the user scrolls down 20px from the top of the document, show the button
+			window.onscroll = function () {
+				scrollFunction()
+			};
+
+			function scrollFunction() {
+				if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+					document.getElementById("movetop").style.display = "block";
+				} else {
+					document.getElementById("movetop").style.display = "none";
+				}
+			}
+
+			// When the user clicks on the button, scroll to the top of the document
+			function topFunction() {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+			}
+		</script>
+		<!-- /move top -->
+
+	</footer>
+	<!--//footer-66 -->
+
+</body>
+
+</html>
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<!-- disable body scroll which navbar is in active -->
+
+<!--//-->
+<script>
+	$(function () {
+		$('.navbar-toggler').click(function () {
+			$('body').toggleClass('noscroll');
+		})
+	});
+</script>
+<!--/scroll-down-JS-->
+<!-- for blog carousel slider -->
+<script src="{% static 'js/owl.carousel.js' %}"></script>
+<!-- script for banner slider-->
+<script>
+	$(document).ready(function () {
+		$('.owl-one').owlCarousel({
+			loop: true,
+			margin: 0,
+			nav: false,
+			responsiveClass: true,
+			autoplay: false,
+			autoplayTimeout: 5000,
+			autoplaySpeed: 1000,
+			autoplayHoverPause: false,
+			responsive: {
+				0: {
+					items: 1,
+					nav: false
+				},
+				480: {
+					items: 1,
+					nav: false
+				},
+				667: {
+					items: 1,
+					nav: true
+				},
+				1000: {
+					items: 1,
+					nav: true
+				}
+			}
+		})
+	})
+</script>
+<!-- //testimonials owlcarousel -->
+<script>
+	$(document).ready(function () {
+		$('.owl-two').owlCarousel({
+			loop: true,
+			margin: 30,
+			nav: false,
+			responsiveClass: true,
+			autoplay: false,
+			autoplayTimeout: 5000,
+			autoplaySpeed: 1000,
+			autoplayHoverPause: false,
+			responsive: {
+				0: {
+					items: 1,
+					nav: false
+				},
+				480: {
+					items: 1,
+					nav: false
+				},
+				667: {
+					items: 1,
+					nav: false
+				},
+				1000: {
+					items: 1,
+					nav: false
+				}
+			}
+		})
+	})
+</script>
+<!-- //script for Testimonials-->
+<!-- //script -->
+
+<script src="{% static 'js/bootstrap.min.js' %}"></script>

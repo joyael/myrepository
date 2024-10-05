@@ -1,0 +1,342 @@
+
+<!doctype html>
+<html lang="eng">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Cleanfreshly a Home Maintenance & Service Category Bootstrap Responsive Web Template | Home :: W3layouts
+	</title>
+	{% load static %}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Template CSS -->
+	<link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
+	<!-- Template CSS -->
+	<link href="//fonts.googleapis.com/css?family=Josefin+Sans:400,400i,500,600,700&display=swap"
+		rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Lato:300,400,400i,700&display=swap" rel="stylesheet">
+	<!-- Template CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+	<!--w3l-header-->
+	<section class="w3l-top-header-content">
+		<div class="hny-top-menu">
+			<div class="container">
+				<div class="row">
+					<ul class="accounts col-sm-8">
+<!--						<li class="top_li"><span class="fa fa-clock-o"></span> <a href="#">Monday - Friday: 10:00 - -->
+<!--								18:00</a>-->
+<!--						</li>-->
+						<li class="top_li mr-lg-0"><span class="fa fa-envelope-o"></span>
+							<a href="mailto:eventmanageemail1@gmail.com" class="mail"> eventmanageemail1@gmail.com</a>
+						</li>
+						<li class="top_li"><span class="fa fa-phone"></span>
+							<a href="tel:+917994428566">+917994428566</a>
+						</li>
+
+					</ul>
+					<ul class="social-top col-sm-4">
+						<li><a href="https://www.facebook.com/login.php/"><span class="fab fa-facebook"></span></a></li>
+						<li><a href="https://www.instagram.com/accounts/login/?hl=en"><span class="fab fa-instagram"></span></a> </li>
+						<li><a href="https://twitter.com/login"><span class="fab fa-twitter"></span></a></li>
+						<li><a href="https://vimeo.com/log_in"><span class="fab fa-vimeo"></span></a> </li>
+						<li>
+							<a href="https://www.linkedin.com/login">
+								<span class="fab fa-linkedin"></span>
+							</a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--//top-header-content-->
+	<header class="w3l-header-nav">
+		<!--/nav-->
+		<nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
+			<div class="container">
+				<h1><a class="navbar-brand" href="index.html">Event<span>Master</span></a></h1>
+				<!-- if logo is image enable this
+						<a class="navbar-brand" href="#index.html">
+							<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+						</a> -->
+				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<!-- <span class="navbar-toggler-icon"></span> -->
+					<span class="fa icon-expand fa-bars"></span>
+					<span class="fa icon-close fa-times"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="{% url 'userhome' %}">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'userprofile' %}">Profile</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'userevents' %}">My Events</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'userownevents' %}">My Created Events</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'logout' %}">Logout</a>
+						</li>
+						<li class="nav-item">
+					</ul>
+<!--					<a href="#" class="ml-lg-3 mt-lg-0 mt-3 book btn btn-secondary btn-style">Get started</a>-->
+				</div>
+			</div>
+		</nav>
+		<!--//nav-->
+	</header>
+	<!-- //w3l-header -->
+	<!--banner-slider-->
+	<!-- main-slider -->
+
+	{%if messages%}
+		<div class="alert alert-success alert-dismissible">
+		{%for i in messages%}
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong> {{i}}</strong>
+		{%endfor%}
+		</div>
+	{% endif %}
+
+	<div class="ticket-card p-3 mb-4 border rounded">
+    <div class="ticket-header mb-2 text-center">
+        <h5 class="ticket-event-name font-weight-bold text-primary">{{ ticket.event.name }}</h5>
+        <p class="ticket-venue text-muted mb-0">{{ ticket.event.venue.name }}</p>
+    </div>
+
+    <div class="ticket-dates mb-3 text-center">
+        <span class="ticket-start-date text-success font-weight-bold">{{ ticket.start|date:"d M Y, h:i A" }}</span>
+        <span class="text-muted">to</span>
+        <span class="ticket-end-date text-danger font-weight-bold">{{ ticket.end|date:"d M Y, h:i A" }}</span>
+    </div>
+
+    <!-- Center both persons and price together -->
+    <div class="ticket-details d-flex justify-content-center align-items-center mb-3">
+        <div class="text-center mr-3">
+            <span class="ticket-persons badge badge-info p-2">{{ ticket.npersons }} Persons</span>
+        </div>
+        <div class="text-center">
+            <span class="ticket-price font-weight-bold text-dark">₹{{ ticket.total_price }}</span>
+        </div>
+    </div>
+
+    <div class="ticket-payment mb-3 text-center">
+        <p class="ticket-payment-id text-secondary small">Payment ID: <span class="font-weight-bold">{{ ticket.payment_id }}</span></p>
+    </div>
+
+    <div class="ticket-action text-center">
+        <a href="{% url 'cancelticket2' d=ticket.id %}"><button class="btn btn-danger">Cancel and refund</button></a>
+    </div>
+</div>
+
+
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+    <!-- footer-66 -->
+	<footer class="w3l-footer-66">
+		<div class="footer-28-main">
+			<div class="container">
+				<div class="row footer-hny-top">
+					<div class="col-lg-6 footer-logo pl-lg-0">
+						<h2><a class="navbar-brand" href="index.html">Event<span>Master</span></a></h2>
+						<!-- if logo is image enable this
+						<a class="navbar-brand" href="#index.html">
+							<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+						</a> -->
+					</div>
+					<div class="col-lg-6 main-social-footer-28 pr-lg-0">
+						<a href="https://www.facebook.com/login.php/"><span class="fab fa-facebook"></span></a>
+						<a href="https://twitter.com/login"><span class="fab fa-twitter"></span></a>
+						<a href="https://accounts.google.co.in/"><span class="fab fa-google-plus"></span></a>
+						<a href="https://www.linkedin.com/login"><span class="fab fa-linkedin"></span></a>
+						<a href="https://www.instagram.com/accounts/login/?hl=en"><span class="fab fa-instagram"></span></a>
+					</div>
+				</div>
+				<div class="row footer-top-28">
+					<div class="col-lg-2 col-md-6 footer-list-28 pl-lg-0">
+						<h6 class="footer-title-28">Extra Links</h6>
+						<ul>
+							<li><a href="about">About Company</a></li>
+							<li><a href="services">Our Services</a></li>
+							<li><a href="portfolio">Recent projects list</a></li>
+							<li><a href="blog">Latest News blog</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-5 col-md-6 footer-list-28">
+						<h6 class="footer-title-28">list of Services</h6>
+						<ul class="d-grid footer-column-2">
+							<li><a href="services.html">Venue Booking</a></li>
+							<li><a href="services.html">Vendor Management</a></li>
+							<li><a href="services.html">Event Promotion</a></li>
+							<li><a href="services.html">Ticketing and Registration</a></li>
+							<li><a href="services.html">Schedule Management</a></li>
+							<li><a href="services.html">Attendee Engagement</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-2 col-md-6 footer-list-28">
+						<h6 class="footer-title-28">Support</h6>
+						<ul>
+							<li><a href="#link">Documentation</a></li>
+							<li><a href="#link">Privacy policy</a></li>
+							<li><a href="#link">Terms of service</a></li>
+							<li><a href="#link">24/7 support</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-3 col-md-6 footer-list-28 pr-lg-0">
+<!--						<h6 class="footer-title-28">Working Hours</h6>-->
+<!--						<ul class="working-hours">-->
+<!--							<li><span>Monday</span> : 8AM - 6AM</li>-->
+<!--							<li><span>Tuesday</span> : 8AM - 6AM</li>-->
+<!--							<li><span>Wednesday</span> : 8AM - 6AM</li>-->
+<!--							<li><span>Thursday - Friday </span> : 8AM - 6AM</li>-->
+<!--							<li><span>Sunday</span> : Closed</li>-->
+<!--						</ul>-->
+					</div>
+				</div>
+			</div>
+			<div class="midd-footer-28 align-center">
+				<p class="copy-footer-28">© 2020 EventMaster. All rights reserved | Designed by
+					<a href="https://w3layouts.com">W3layouts</a></p>
+			</div>
+		</div>
+		<!-- move top -->
+		<button onclick="topFunction()" id="movetop" title="Go to top">
+			<span class="fa fa-angle-up"></span>
+		</button>
+		<script>
+			// When the user scrolls down 20px from the top of the document, show the button
+			window.onscroll = function () {
+				scrollFunction()
+			};
+
+			function scrollFunction() {
+				if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+					document.getElementById("movetop").style.display = "block";
+				} else {
+					document.getElementById("movetop").style.display = "none";
+				}
+			}
+
+			// When the user clicks on the button, scroll to the top of the document
+			function topFunction() {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+			}
+		</script>
+		<!-- /move top -->
+
+	</footer>
+	<!--//footer-66 -->
+
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<!-- disable body scroll which navbar is in active -->
+
+<!--//-->
+<script>
+	$(function () {
+		$('.navbar-toggler').click(function () {
+			$('body').toggleClass('noscroll');
+		})
+	});
+</script>
+<!--/scroll-down-JS-->
+<!-- for blog carousel slider -->
+<script src="{% static 'js/owl.carousel.js' %}"></script>
+<!-- script for banner slider-->
+<script>
+	$(document).ready(function () {
+		$('.owl-one').owlCarousel({
+			loop: true,
+			margin: 0,
+			nav: false,
+			responsiveClass: true,
+			autoplay: false,
+			autoplayTimeout: 5000,
+			autoplaySpeed: 1000,
+			autoplayHoverPause: false,
+			responsive: {
+				0: {
+					items: 1,
+					nav: false
+				},
+				480: {
+					items: 1,
+					nav: false
+				},
+				667: {
+					items: 1,
+					nav: true
+				},
+				1000: {
+					items: 1,
+					nav: true
+				}
+			}
+		})
+	})
+</script>
+<!-- //testimonials owlcarousel -->
+<script>
+	$(document).ready(function () {
+		$('.owl-two').owlCarousel({
+			loop: true,
+			margin: 30,
+			nav: false,
+			responsiveClass: true,
+			autoplay: false,
+			autoplayTimeout: 5000,
+			autoplaySpeed: 1000,
+			autoplayHoverPause: false,
+			responsive: {
+				0: {
+					items: 1,
+					nav: false
+				},
+				480: {
+					items: 1,
+					nav: false
+				},
+				667: {
+					items: 1,
+					nav: false
+				},
+				1000: {
+					items: 1,
+					nav: false
+				}
+			}
+		})
+	})
+</script>
+<!-- //script for Testimonials-->
+<!-- //script -->
+
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</body>
+
+</html>

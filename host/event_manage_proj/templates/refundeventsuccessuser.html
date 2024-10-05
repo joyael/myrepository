@@ -1,0 +1,337 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="zxx">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Cleanfreshly a Home Maintenance & Service Category Bootstrap Responsive Web Template | Home :: W3layouts
+	</title>
+	{% load static %}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Template CSS -->
+	<link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
+	<!-- Template CSS -->
+	<link href="//fonts.googleapis.com/css?family=Josefin+Sans:400,400i,500,600,700&display=swap"
+		rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Lato:300,400,400i,700&display=swap" rel="stylesheet">
+	<!-- Template CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+	<style>
+	</style>
+
+</head>
+
+<body>
+	<!--w3l-header-->
+	<section class="w3l-top-header-content">
+		<div class="hny-top-menu">
+			<div class="container">
+				<div class="row">
+					<ul class="accounts col-sm-8">
+<!--						<li class="top_li"><span class="fa fa-clock-o"></span> <a href="#">Monday - Friday: 10:00 - -->
+<!--								18:00</a>-->
+<!--						</li>-->
+						<li class="top_li mr-lg-0"><span class="fa fa-envelope-o"></span>
+							<a href="mailto:eventmanageemail1@gmail.com" class="mail"> eventmanageemail1@gmail.com</a>
+						</li>
+						<li class="top_li"><span class="fa fa-phone"></span>
+							<a href="tel:+917994428566">+917994428566</a>
+						</li>
+
+					</ul>
+					<ul class="social-top col-sm-4">
+						<li><a href="https://www.facebook.com/login.php/"><span class="fab fa-facebook"></span></a></li>
+						<li><a href="https://www.instagram.com/accounts/login/?hl=en"><span class="fab fa-instagram"></span></a> </li>
+						<li><a href="https://twitter.com/login"><span class="fab fa-twitter"></span></a></li>
+						<li><a href="https://vimeo.com/log_in"><span class="fab fa-vimeo"></span></a> </li>
+						<li>
+							<a href="https://www.linkedin.com/login">
+								<span class="fab fa-linkedin"></span>
+							</a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--//top-header-content-->
+	<header class="w3l-header-nav">
+		<!--/nav-->
+		<nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
+			<div class="container">
+				<h1><a class="navbar-brand" href="index.html">Event<span>Master</span></a></h1>
+				<!-- if logo is image enable this
+						<a class="navbar-brand" href="#index.html">
+							<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+						</a> -->
+				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<!-- <span class="navbar-toggler-icon"></span> -->
+					<span class="fa icon-expand fa-bars"></span>
+					<span class="fa icon-close fa-times"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="{% url 'userhome' %}">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'userprofile' %}">Profile</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'userevents' %}">My Events</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'userownevents' %}">My Created Events</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'logout' %}">Logout</a>
+						</li>
+						<li class="nav-item">
+					</ul>
+<!--					<a href="#" class="ml-lg-3 mt-lg-0 mt-3 book btn btn-secondary btn-style">Get started</a>-->
+				</div>
+			</div>
+		</nav>
+		<!--//nav-->
+	</header>
+	<!-- //w3l-header -->
+	<!--banner-slider-->
+	<!-- main-slider -->
+
+	{%if messages%}
+		<div class="alert alert-success alert-dismissible">
+		{%for i in messages%}
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong> {{i}}</strong>
+		{%endfor%}
+		</div>
+	{% endif %}
+
+    <div class="container mt-5">
+        <div class="card shadow-lg border-success">
+            <div class="card-body text-center">
+                <h3 class="card-title text-success mb-4">Refund Successful!</h3>
+
+				<div style="font-size: 16px; color: green; font-weight: bold; text-align: center; margin-top: 20px;">
+					Will be Reflected in account within 2 business days
+				</div>
+
+                <p class="card-text">
+                    <strong>Refunded for event:</strong> ₹{{ event.name }}<br>
+                    <strong>Event Price:</strong> ₹{{ event.price }}<br>
+                    <strong>Refunded Amount:</strong> ₹{{ event.refundprice }}<br>
+                    <strong>Refund ID:</strong> {{ event.refundid }}<br>
+                    <strong>Refund Date:</strong> {{ event.refunddate }}
+                </p>
+
+                <div class="mt-4">
+                    <a href="{% url 'userhome' %}" class="btn btn-primary">
+                        <i class="bi bi-house"></i> Return to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+    <!-- footer-66 -->
+	<footer class="w3l-footer-66">
+		<div class="footer-28-main">
+			<div class="container">
+				<div class="row footer-hny-top">
+					<div class="col-lg-6 footer-logo pl-lg-0">
+						<h2><a class="navbar-brand" href="index.html">Event<span>Master</span></a></h2>
+						<!-- if logo is image enable this
+						<a class="navbar-brand" href="#index.html">
+							<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+						</a> -->
+					</div>
+					<div class="col-lg-6 main-social-footer-28 pr-lg-0">
+						<a href="https://www.facebook.com/login.php/"><span class="fab fa-facebook"></a>
+						<a href="https://twitter.com/login"><span class="fab fa-twitter"></a>
+						<a href="https://accounts.google.co.in/"><span class="fab fa-google-plus"></a>
+						<a href="https://www.linkedin.com/login"><span class="fab fa-linkedin"></a>
+						<a href="https://www.instagram.com/accounts/login/?hl=en"><span class="fab fa-instagram"></a>
+					</div>
+				</div>
+				<div class="row footer-top-28">
+					<div class="col-lg-2 col-md-6 footer-list-28 pl-lg-0">
+						<h6 class="footer-title-28">Extra Links</h6>
+						<ul>
+							<li><a href="about">About Company</a></li>
+							<li><a href="services">Our Services</a></li>
+							<li><a href="portfolio">Recent projects list</a></li>
+							<li><a href="blog">Latest News blog</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-5 col-md-6 footer-list-28">
+						<h6 class="footer-title-28">list of Services</h6>
+						<ul class="d-grid footer-column-2">
+							<li><a href="services.html">Venue Booking</a></li>
+							<li><a href="services.html">Vendor Management</a></li>
+							<li><a href="services.html">Event Promotion</a></li>
+							<li><a href="services.html">Ticketing and Registration</a></li>
+							<li><a href="services.html">Schedule Management</a></li>
+							<li><a href="services.html">Attendee Engagement</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-2 col-md-6 footer-list-28">
+						<h6 class="footer-title-28">Support</h6>
+						<ul>
+							<li><a href="#link">Documentation</a></li>
+							<li><a href="#link">Privacy policy</a></li>
+							<li><a href="#link">Terms of service</a></li>
+							<li><a href="#link">24/7 support</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-3 col-md-6 footer-list-28 pr-lg-0">
+<!--						<h6 class="footer-title-28">Working Hours</h6>-->
+<!--						<ul class="working-hours">-->
+<!--							<li><span>Monday</span> : 8AM - 6AM</li>-->
+<!--							<li><span>Tuesday</span> : 8AM - 6AM</li>-->
+<!--							<li><span>Wednesday</span> : 8AM - 6AM</li>-->
+<!--							<li><span>Thursday - Friday </span> : 8AM - 6AM</li>-->
+<!--							<li><span>Sunday</span> : Closed</li>-->
+<!--						</ul>-->
+					</div>
+				</div>
+			</div>
+			<div class="midd-footer-28 align-center">
+				<p class="copy-footer-28">© 2020 EventMaster. All rights reserved | Designed by <a
+						href="https://w3layouts.com">W3layouts</a></p>
+			</div>
+		</div>
+		<!-- move top -->
+		<button onclick="topFunction()" id="movetop" title="Go to top">
+			<span class="fa fa-angle-up"></span>
+		</button>
+		<script>
+			// When the user scrolls down 20px from the top of the document, show the button
+			window.onscroll = function () {
+				scrollFunction()
+			};
+
+			function scrollFunction() {
+				if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+					document.getElementById("movetop").style.display = "block";
+				} else {
+					document.getElementById("movetop").style.display = "none";
+				}
+			}
+
+			// When the user clicks on the button, scroll to the top of the document
+			function topFunction() {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+			}
+		</script>
+		<!-- /move top -->
+
+	</footer>
+	<!--//footer-66 -->
+</body>
+
+</html>
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<!-- disable body scroll which navbar is in active -->
+
+<!--//-->
+<script>
+	$(function () {
+		$('.navbar-toggler').click(function () {
+			$('body').toggleClass('noscroll');
+		})
+	});
+</script>
+<!--/scroll-down-JS-->
+<!-- for blog carousel slider -->
+<script src="{% static 'js/owl.carousel.js' %}"></script>
+<!-- script for banner slider-->
+<script>
+	$(document).ready(function () {
+		$('.owl-one').owlCarousel({
+			loop: true,
+			margin: 0,
+			nav: false,
+			responsiveClass: true,
+			autoplay: false,
+			autoplayTimeout: 5000,
+			autoplaySpeed: 1000,
+			autoplayHoverPause: false,
+			responsive: {
+				0: {
+					items: 1,
+					nav: false
+				},
+				480: {
+					items: 1,
+					nav: false
+				},
+				667: {
+					items: 1,
+					nav: true
+				},
+				1000: {
+					items: 1,
+					nav: true
+				}
+			}
+		})
+	})
+</script>
+<!-- //testimonials owlcarousel -->
+<script>
+	$(document).ready(function () {
+		$('.owl-two').owlCarousel({
+			loop: true,
+			margin: 30,
+			nav: false,
+			responsiveClass: true,
+			autoplay: false,
+			autoplayTimeout: 5000,
+			autoplaySpeed: 1000,
+			autoplayHoverPause: false,
+			responsive: {
+				0: {
+					items: 1,
+					nav: false
+				},
+				480: {
+					items: 1,
+					nav: false
+				},
+				667: {
+					items: 1,
+					nav: false
+				},
+				1000: {
+					items: 1,
+					nav: false
+				}
+			}
+		})
+	})
+</script>
+<!-- //script for Testimonials-->
+<!-- //script -->
+
+<script src="{% static 'js/bootstrap.min.js' %}"></script>

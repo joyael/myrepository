@@ -1,0 +1,486 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="zxx">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Cleanfreshly a Home Maintenance & Service Category Bootstrap Responsive Web Template | Home :: W3layouts
+	</title>
+	{% load static %}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Template CSS -->
+	<link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
+	<!-- Template CSS -->
+	<link href="//fonts.googleapis.com/css?family=Josefin+Sans:400,400i,500,600,700&display=swap"
+		rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Lato:300,400,400i,700&display=swap" rel="stylesheet">
+	<!-- Template CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+	<!--w3l-header-->
+	<section class="w3l-top-header-content">
+		<div class="hny-top-menu">
+			<div class="container">
+				<div class="row">
+					<ul class="accounts col-sm-8">
+<!--						<li class="top_li"><span class="fa fa-clock-o"></span> <a href="#">Monday - Friday: 10:00 - -->
+<!--								18:00</a>-->
+<!--						</li>-->
+						<li class="top_li mr-lg-0"><span class="fa fa-envelope-o"></span>
+							<a href="mailto:eventmanageemail1@gmail.com" class="mail"> eventmanageemail1@gmail.com</a>
+						</li>
+						<li class="top_li"><span class="fa fa-phone"></span>
+							<a href="tel:+917994428566">+917994428566</a>
+						</li>
+
+					</ul>
+					<ul class="social-top col-sm-4">
+						<li><a href="https://www.facebook.com/login.php/"><span class="fab fa-facebook"></span></a></li>
+						<li><a href="https://www.instagram.com/accounts/login/?hl=en"><span class="fab fa-instagram"></span></a> </li>
+						<li><a href="https://twitter.com/login"><span class="fab fa-twitter"></span></a></li>
+						<li><a href="https://vimeo.com/log_in"><span class="fab fa-vimeo"></span></a> </li>
+						<li>
+							<a href="https://www.linkedin.com/login">
+								<span class="fab fa-linkedin"></span>
+							</a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--//top-header-content-->
+	<header class="w3l-header-nav">
+		<!--/nav-->
+		<nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
+			<div class="container">
+				<h1><a class="navbar-brand" href="index.html">Event<span>Master</span></a></h1>
+				<!-- if logo is image enable this
+						<a class="navbar-brand" href="#index.html">
+							<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+						</a> -->
+				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<!-- <span class="navbar-toggler-icon"></span> -->
+					<span class="fa icon-expand fa-bars"></span>
+					<span class="fa icon-close fa-times"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="{% url 'userhome' %}">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'userprofile' %}">Profile</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'userevents' %}">My Events</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'userownevents' %}">My Created Events</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'logout' %}">Logout</a>
+						</li>
+					</ul>
+<!--					<a href="#" class="ml-lg-3 mt-lg-0 mt-3 book btn btn-secondary btn-style">Get started</a>-->
+				</div>
+			</div>
+		</nav>
+		<!--//nav-->
+	</header>
+	<!-- //w3l-header -->
+	<!--banner-slider-->
+	<!-- main-slider -->
+
+	{%if messages%}
+		<div class="alert alert-success alert-dismissible">
+		{%for i in messages%}
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong> {{i}}</strong>
+		{%endfor%}
+		</div>
+	{%endif%}
+
+<!--<div class="container d-flex justify-content-center align-items-center min-vh-100">-->
+<!--        <div class="card shadow-lg p-4">-->
+<!--            <div class="card-body">-->
+<!--                <h2 class="card-title text-center mb-4">User Sign Up</h2>-->
+<!--                <form id="signupForm" onsubmit="return validateForm()" method="POST" action="usersignup">-->
+<!--                    {% csrf_token %}-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="name">Name</label>-->
+<!--                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="email">Email</label>-->
+<!--                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="phone_number">Phone Number</label>-->
+<!--                        <input type="tel" class="form-control" id="phone_number" name="phone_number" placeholder="Enter your phone number" pattern="\+?[0-9]{10,15}" required>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="address">Address</label>-->
+<!--                        <textarea class="form-control" id="address" name="address" rows="3" placeholder="Enter your address" required></textarea>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="district">District</label>-->
+<!--                        <input type="text" class="form-control" id="district" name="district" placeholder="Enter your district" required>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="pincode">Pincode</label>-->
+<!--                        <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter your pincode" pattern="[0-9]{6}" required>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="date_of_birth">Date of Birth</label>-->
+<!--                        <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" required>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="age">Age</label>-->
+<!--                        <input type="number" class="form-control" id="age" name="age" placeholder="Enter your age" required>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="username">Username</label>-->
+<!--                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" pattern="^[a-zA-Z0-9]{3,20}$" required>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <label for="password">Password</label>-->
+<!--                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" pattern=".{8,}" required>-->
+<!--                    </div>-->
+<!--                    <button type="submit" class="btn btn-primary btn-block">Sign Up</button>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <form action="edituserprofile" method="POST">
+		{% csrf_token %}
+    <div class="container">
+		<hr>
+        <label for="name"><b>Name</b></label>
+        <input type="text" value="{{user.name}}" placeholder="Enter Name" name="name" id="name" required><br>
+
+        <label for="email"><b>Email</b></label>
+        <input type="email" value="{{user.email}}" placeholder="Enter Email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required><br>
+
+        <label for="phone_number"><b>Phone number</b></label>
+        <input type="tel" value="{{user.phone_number}}" placeholder="Enter Phone number" name="phone_number" id="phone_number" required><br>
+		<span id="phone_warning" class="warning">Phone number should start with 9, 8, or 7.</span>
+
+        <label for="address"><b>Address</b></label>
+        <input type="text" value="{{user.address}}" placeholder="Enter Address" name="address" id="address" required><br>
+
+<!--        <label for="district"><b>District</b></label>-->
+<!--        <input type="text" placeholder="Enter District" name="district" id="district" required><br>-->
+		<label for="district"><b>District</b></label>
+        <select id="district" name="district">
+            <option value="idukki">Idukki</option>
+            <option value="kottayam">Kottayam</option>
+            <option value="ernakulam">Ernakulam</option>
+            <option value="kollam">Kollam</option>
+            <option value="thrissur">Thrissur</option>
+            <option value="alappuzha">Thrissur</option>
+            <option value="vayanad">Vayanad</option>
+            <option value="palakkad">Palakkad</option>
+            <option value="kozhikode">Kozhikode</option>
+            <option value="malappuram">Malappuram</option>
+            <option value="thiruvananthapuram">Thiruvananthapuram</option>
+            <option value="kannur">Kannur</option>
+            <option value="kasargod">Kasargod</option>
+        </select>
+
+        <label for="pincode"><b>Pincode</b></label>
+        <input type="text" value="{{user.pincode}}" placeholder="Enter Pincode" name="pincode" id="pincode" required><br>
+
+        <label for="date_of_birth"><b>Date of Birth</b></label>
+        <input type="date" value="{{user.date_of_birth}}" placeholder="Enter Date of Birth" name="date_of_birth" id="date_of_birth" required><br>
+
+        <label for="age"><b>Age</b></label>
+        <input type="number" value="{{user.age}}" min="1" placeholder="Enter Age" name="age" id="age" required><br>
+
+        <label for="username"><b>Username</b></label>
+        <input type="text" value="{{user.username}}" placeholder="Enter Username" name="username" id="username" required><br>
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" value="{{user.password}}" placeholder="Enter Password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required><br>
+
+        <label for="psw-repeat"><b>Repeat Password</b></label>
+        <input type="password" value="{{user.password}}" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required><br>
+        <hr>
+        <button type="submit" class="registerbtn">Save</button>
+    </div>
+	  <div class="container signin">
+		<p>Go to Home<a href="userhome">Sign in</a>.</p>
+	  </div>
+	</form>
+
+
+
+	<script>
+		// Function to set the max date for Date of Birth
+		function setMaxDate() {
+			const today = new Date();
+			const year = today.getFullYear() - 18;
+			const month = today.getMonth() + 1; // getMonth is zero-based, so add 1
+			const day = today.getDate();
+
+			// Format the max date as yyyy-mm-dd
+			const maxDate = `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
+
+			// Set the max attribute on the date input
+			document.getElementById('date_of_birth').setAttribute('max', maxDate);
+		}
+
+		// Function to calculate and set the age based on Date of Birth
+		function calculateAge() {
+			const dob = new Date(document.getElementById('date_of_birth').value);
+			const today = new Date();
+			let age = today.getFullYear() - dob.getFullYear();
+			const monthDiff = today.getMonth() - dob.getMonth();
+
+			// Adjust age if the birthday hasn't occurred yet this year
+			if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+				age--;
+			}
+
+			document.getElementById('age').value = age;
+		}
+
+		// Set max date when the page loads
+		window.onload = setMaxDate;
+		// Attach the calculateAge function to the date_of_birth input's change event
+		document.getElementById('date_of_birth').addEventListener('change', calculateAge);
+
+		function checkPhoneNumber() {
+            const phoneInput = document.getElementById('phone_number').value;
+            const warningMessage = document.getElementById('phone_warning');
+
+            // Check if the first character is 9, 8, or 7
+            if (phoneInput && !phoneInput.match(/^[987]/)) {
+                warningMessage.style.display = 'block';  // Show the warning message
+            } else {
+                warningMessage.style.display = 'none';   // Hide the warning message
+            }
+        }
+
+        // Attach the checkPhoneNumber function to the input's oninput event
+        document.getElementById('phone_number').addEventListener('input', checkPhoneNumber);
+	</script>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{%  static 'js/usersignup.js' %}"></script>
+
+
+	<!-- /main-slider -->
+	<!-- //banner-slider-->
+	<!-- /bottom-grids-->
+
+	<!-- //bottom-grids-->
+	<!-- /content-with-photo-1-->
+
+	<!-- //content-with-photo-1-->
+
+	<!-- /content-6-->
+
+	<!-- //content-6-->
+	<!-- /offer-->
+<!--	<-->
+	<!--//testimonials-->
+	<!-- footer-66 -->
+	<!-- footer-66 -->
+	<footer class="w3l-footer-66">
+		<div class="footer-28-main">
+			<div class="container">
+				<div class="row footer-hny-top">
+					<div class="col-lg-6 footer-logo pl-lg-0">
+						<h2><a class="navbar-brand" href="index.html">Event<span>Master</span></a></h2>
+						<!-- if logo is image enable this
+						<a class="navbar-brand" href="#index.html">
+							<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+						</a> -->
+					</div>
+					<div class="col-lg-6 main-social-footer-28 pr-lg-0">
+						<a href="https://www.facebook.com/login.php/"><span class="fab fa-facebook"></a>
+						<a href="https://twitter.com/login"><span class="fab fa-twitter"></a>
+						<a href="https://accounts.google.co.in/"><span class="fab fa-google-plus"></a>
+						<a href="https://www.linkedin.com/login"><span class="fab fa-linkedin"></a>
+						<a href="https://www.instagram.com/accounts/login/?hl=en"><span class="fab fa-instagram"></a>
+					</div>
+				</div>
+				<div class="row footer-top-28">
+					<div class="col-lg-2 col-md-6 footer-list-28 pl-lg-0">
+						<h6 class="footer-title-28">Extra Links</h6>
+						<ul>
+							<li><a href="about.html">About Company</a></li>
+							<li><a href="services.html">Our Services</a></li>
+							<li><a href="portfolio.html">Recent projects list</a></li>
+							<li><a href="blog.html">Latest News blog</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-5 col-md-6 footer-list-28">
+						<h6 class="footer-title-28">list of Services</h6>
+						<ul class="d-grid footer-column-2">
+							<li><a href="services.html">Venue Booking</a></li>
+							<li><a href="services.html">Vendor Management</a></li>
+							<li><a href="services.html">Event Promotion</a></li>
+							<li><a href="services.html">Ticketing and Registration</a></li>
+							<li><a href="services.html">Schedule Management</a></li>
+							<li><a href="services.html">Attendee Engagement</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-2 col-md-6 footer-list-28">
+						<h6 class="footer-title-28">Support</h6>
+						<ul>
+							<li><a href="#link">Documentation</a></li>
+							<li><a href="#link">Privacy policy</a></li>
+							<li><a href="#link">Terms of service</a></li>
+							<li><a href="#link">24/7 support</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-3 col-md-6 footer-list-28 pr-lg-0">
+<!--						<h6 class="footer-title-28">Working Hours</h6>-->
+<!--						<ul class="working-hours">-->
+<!--							<li><span>Monday</span> : 8AM - 6AM</li>-->
+<!--							<li><span>Tuesday</span> : 8AM - 6AM</li>-->
+<!--							<li><span>Wednesday</span> : 8AM - 6AM</li>-->
+<!--							<li><span>Thursday - Friday </span> : 8AM - 6AM</li>-->
+<!--							<li><span>Sunday</span> : Closed</li>-->
+<!--						</ul>-->
+					</div>
+				</div>
+			</div>
+			<div class="midd-footer-28 align-center">
+				<p class="copy-footer-28">© 2020 EventMaster. All rights reserved | Designed by <a
+						href="https://w3layouts.com">W3layouts</a></p>
+			</div>
+		</div>
+		<!-- move top -->
+		<button onclick="topFunction()" id="movetop" title="Go to top">
+			<span class="fa fa-angle-up"></span>
+		</button>
+		<script>
+			// When the user scrolls down 20px from the top of the document, show the button
+			window.onscroll = function () {
+				scrollFunction()
+			};
+
+			function scrollFunction() {
+				if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+					document.getElementById("movetop").style.display = "block";
+				} else {
+					document.getElementById("movetop").style.display = "none";
+				}
+			}
+
+			// When the user clicks on the button, scroll to the top of the document
+			function topFunction() {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+			}
+		</script>
+		<!-- /move top -->
+
+	</footer>
+	<!--//footer-66 -->
+</body>
+
+</html>
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<!-- disable body scroll which navbar is in active -->
+
+<!--//-->
+<script>
+	$(function () {
+		$('.navbar-toggler').click(function () {
+			$('body').toggleClass('noscroll');
+		})
+	});
+</script>
+<!--/scroll-down-JS-->
+<!-- for blog carousel slider -->
+<script src="{% static 'js/owl.carousel.js' %}"></script>
+<!-- script for banner slider-->
+<script>
+	$(document).ready(function () {
+		$('.owl-one').owlCarousel({
+			loop: true,
+			margin: 0,
+			nav: false,
+			responsiveClass: true,
+			autoplay: false,
+			autoplayTimeout: 5000,
+			autoplaySpeed: 1000,
+			autoplayHoverPause: false,
+			responsive: {
+				0: {
+					items: 1,
+					nav: false
+				},
+				480: {
+					items: 1,
+					nav: false
+				},
+				667: {
+					items: 1,
+					nav: true
+				},
+				1000: {
+					items: 1,
+					nav: true
+				}
+			}
+		})
+	})
+</script>
+<!-- //testimonials owlcarousel -->
+<script>
+	$(document).ready(function () {
+		$('.owl-two').owlCarousel({
+			loop: true,
+			margin: 30,
+			nav: false,
+			responsiveClass: true,
+			autoplay: false,
+			autoplayTimeout: 5000,
+			autoplaySpeed: 1000,
+			autoplayHoverPause: false,
+			responsive: {
+				0: {
+					items: 1,
+					nav: false
+				},
+				480: {
+					items: 1,
+					nav: false
+				},
+				667: {
+					items: 1,
+					nav: false
+				},
+				1000: {
+					items: 1,
+					nav: false
+				}
+			}
+		})
+	})
+</script>
+<!-- //script for Testimonials-->
+<!-- //script -->
+
+<script src="{% static 'js/bootstrap.min.js' %}"></script>

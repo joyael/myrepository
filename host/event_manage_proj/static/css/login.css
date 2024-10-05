@@ -1,0 +1,31 @@
+body {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: #fff;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 10px;
+}
+
+.card-title {
+    font-size: 2rem;
+    color: #333;
+}
+
+.list-group-item {
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.list-group-item:hover {
+    background-color: #6a11cb;
+    color: #fff;
+    border-color: #6a11cb;
+}

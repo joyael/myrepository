@@ -1,0 +1,688 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="zxx">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Cleanfreshly a Home Maintenance & Service Category Bootstrap Responsive Web Template | Home :: W3layouts
+	</title>
+	{% load static %}
+	<!-- Template CSS -->
+	<link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
+	<!-- Template CSS -->
+	<link href="//fonts.googleapis.com/css?family=Josefin+Sans:400,400i,500,600,700&display=swap"
+		rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Lato:300,400,400i,700&display=swap" rel="stylesheet">
+	<!-- Template CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+	<!--w3l-header-->
+	<section class="w3l-top-header-content">
+		<div class="hny-top-menu">
+			<div class="container">
+				<div class="row">
+					<ul class="accounts col-sm-8">
+<!--						<li class="top_li"><span class="fa fa-clock-o"></span> <a href="#">Monday - Friday: 10:00 - -->
+<!--								18:00</a>-->
+<!--						</li>-->
+						<li class="top_li mr-lg-0"><span class="fa fa-envelope-o"></span>
+							<a href="mailto:eventmanageemail1@gmail.com" class="mail"> eventmanageemail1@gmail.com</a>
+						</li>
+						<li class="top_li"><span class="fa fa-phone"></span>
+							<a href="tel:+917994428566">+917994428566</a>
+						</li>
+
+					</ul>
+					<ul class="social-top col-sm-4">
+						<li><a href="https://www.facebook.com/login.php/"><span class="fab fa-facebook"></span></a></li>
+						<li><a href="https://www.instagram.com/accounts/login/?hl=en"><span class="fab fa-instagram"></span></a> </li>
+						<li><a href="https://twitter.com/login"><span class="fab fa-twitter"></span></a></li>
+						<li><a href="https://vimeo.com/log_in"><span class="fab fa-vimeo"></span></a> </li>
+						<li>
+							<a href="https://www.linkedin.com/login">
+								<span class="fab fa-linkedin"></span>
+							</a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--//top-header-content-->
+	<header class="w3l-header-nav">
+		<!--/nav-->
+		<nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
+			<div class="container">
+				<h1><a class="navbar-brand" href="index.html">Event<span>Master</span></a></h1>
+				<!-- if logo is image enable this   
+						<a class="navbar-brand" href="#index.html">
+							<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+						</a> -->
+				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<!-- <span class="navbar-toggler-icon"></span> -->
+					<span class="fa icon-expand fa-bars"></span>
+					<span class="fa icon-close fa-times"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="{% url 'index' %}">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="about">About</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="services">Services</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="contact">Contact</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="login">Login</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="signup">Sign up</a>
+						</li>
+					</ul>
+<!--					<a href="#" class="ml-lg-3 mt-lg-0 mt-3 book btn btn-secondary btn-style">Get started</a>-->
+				</div>
+			</div>
+		</nav>
+		<!--//nav-->
+	</header>
+	<!-- //w3l-header -->
+	<!--banner-slider-->
+	<!-- main-slider -->
+
+	{%if messages%}
+		<div class="alert alert-success alert-dismissible">
+		{%for i in messages%}
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong> {{i}}</strong>
+		{%endfor%}
+		</div>
+	{% endif %}
+
+	<section class="w3l-main-slider" id="home">
+		<div class="banner-content">
+			<div class="owl-one owl-carousel owl-theme">
+				<div class="item">
+					<li>
+						<div class="slider-info banner-view bg bg2" style="background-image: url('{% static 'images/events.jpeg' %}')">
+
+							<div class="banner-info">
+								<div class="container">
+									<div class="banner-info-bg">
+										<h6>Convenient and seamless</h6>
+										<h5>The superior choice for managing local events online
+										</h5>
+										<a class="btn mt-sm-5 mt-4" href="services.html">Read More</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</div>
+				<div class="item">
+					<li>
+						<div class="slider-info  banner-view banner-top1 bg bg2"style="background-image: url('{% static 'images/events.jpeg' %}')">
+							<div class="banner-info">
+								<div class="container">
+									<div class="banner-info-bg">
+										<h6>User-friendly and reliable</h6>
+										<h5>Your go-to app for local event management</h5>
+										<a class="btn mt-sm-5 mt-4" href="services.html">Read More</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</div>
+				<div class="item">
+					<li>
+						<div class="slider-info banner-view banner-top2 bg bg2" style="background-image: url('{% static 'images/events.jpeg' %}')">
+							<div class="banner-info">
+								<div class="container">
+									<div class="banner-info-bg">
+										<h6>Easy and effective</h6>
+										<h5>Seamlessly manage local events online
+										</h5>
+										<a class="btn mt-sm-5 mt-4" href="services.html">Read More</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</div>
+				<div class="item">
+					<li>
+						<div class="slider-info banner-view banner-top3 bg bg2"style="background-image: url('{% static 'images/events.jpeg' %}')">
+							<div class="banner-info">
+								<div class="container">
+									<div class="banner-info-bg">
+										<h6>Innovative and powerful</h6>
+										<h5>The ultimate tool for local event planning</h5>
+										<a class="btn mt-sm-5 mt-4" href="services.html">Read More</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- /main-slider -->
+	<!-- //banner-slider-->
+	<!-- /bottom-grids-->
+	<section class="w3l-bottom-grids-6">
+		<div class="container">
+			<div class="grids-area-hny main-cont-wthree-fea row">
+				<div class="col-lg-4 col-md-6 grids-feature">
+					<div class="area-box">
+						<span class="fa fa-bath"></span>
+						<h4><a href="#feature" class="title-head">Best Event Management</a></h4>
+						<p>Our platform ensures top-notch event management services, providing everything you need for a successful event.</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 grids-feature">
+					<div class="area-box active">
+						<span class="fa fa-cogs active"></span>
+						<h4><a href="#feature" class="title-head">Expert Event Planning</a></h4>
+						<p>With our expertise, we assist you in planning every detail of your event, from start to finish, ensuring a seamless experience.</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 grids-feature">
+					<div class="area-box">
+						<span class="fa fa-users"></span>
+						<h4><a href="#feature" class="title-head">Event Coordination Expertise</a></h4>
+						<p>Our team specializes in coordinating events of all sizes, ensuring that everything runs smoothly and efficiently.</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!-- //bottom-grids-->
+	<!-- /content-with-photo-1-->
+	<section class="w3l-content-with-photo-1">
+		<div class="ab-content-6-mian py-5">
+			<div class="container py-lg-5">
+				<div class="welcome-grids row">
+					<div class="col-lg-6 welcome-image">
+						<img src="{% static 'images/ab1.jpg' %}" class="img-fluid" alt="" />
+					</div>
+					<div class="col-lg-6 mt-lg-0 mt-5 pl-lg-4">
+						<div class="title-content text-left">
+							<h6 class="sub-title">Welcome to EventMaster</h6>
+							<h3 class="hny-title">About Our Site</h3>
+						</div>
+						<p class="my-3">EventMaster is your go-to solution for managing local events with ease.
+							Our app is designed to handle every aspect of event planning and execution,
+							making it simple for you to host successful events. Whether it's a small community
+							gathering or a large-scale conference, EventMaster has the tools and features you
+							need to make it happen.</p>
+						<p>Our mission is to provide a comprehensive platform that simplifies event management,
+							saving you time and effort. We offer a range of services, including venue booking,
+							vendor management, event promotion, and attendee engagement, all within a
+							user-friendly interface.</p>
+						<div class="read">
+							<a class="btn mt-4" href="services.html">Read More</a>
+						</div>
+					</div>
+
+
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!-- //content-with-photo-1-->
+
+	<!-- /content-6-->
+	<section class="w3l-content-6">
+		<!-- /content-6-main-->
+		<div class="content-6-mian py-5">
+			<div class="container py-lg-5">
+				<div class="content-info-in row">
+					<div class="content-gd col-lg-4">
+						<h3 class="hny-title">
+							We Provide High-Quality Event Management Services</h3>
+					</div>
+					<div class="content-gd col-lg-4 pl-lg-4">
+						<p>Our services are designed to ensure your events are executed flawlessly,
+							leaving a lasting impression on your attendees.</p>
+					</div>
+					<div class="content-gd col-lg-4 pl-lg-4">
+						<p>We offer comprehensive event planning and management services, including
+							vendor coordination, ticketing, and attendee engagement, all tailored
+							to meet your specific needs and goals.</p>
+					</div>
+
+				</div>
+				<div class="features-top_sur d-grid">
+					<div class="features-top-left_sur">
+						<span class="fa fa-plug"></span>
+						<h4><a href="services.html">Venue booking</a></h4>
+
+					</div>
+					<div class="features-top-left_sur">
+						<span class="fa fa-paint-brush"></span>
+						<h4><a href="services.html">Vendor management</a></h4>
+
+					</div>
+					<div class="features-top-left_sur">
+						<span class="fa fa-bed"></span>
+						<h4><a href="services.html">Event promotion</a></h4>
+
+					</div>
+					<div class="features-top-left_sur">
+						<span class="fa fa-shield"></span>
+						<h4><a href="services.html">Ticketing and registration</a></h4>
+
+					</div>
+					<div class="features-top-left_sur">
+						<span class="fa fa-paragraph"></span>
+						<h4><a href="services.html">Schedule management</a></h4>
+
+					</div>
+					<div class="features-top-left_sur">
+						<span class="fa fa-unlink"></span>
+						<h4><a href="services.html">Attendee engagement</a></h4>
+
+					</div>
+
+
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!-- //content-6-->
+	<!-- /offer-->
+	<section class="features-4">
+		<div class="features4-block py-5">
+			<div class="container py-lg-5">
+				<div class="features4-grids text-center row">
+					<div class="col-lg-3 col-md-6 features4-grid">
+						<div class="features4-grid-inn">
+							<span class="fa fa-bath icon-fea4" aria-hidden="true"></span>
+							<h5><a href="#URL">Venue Booking</a></h5>
+							<p>Secure the ideal location for your event with our easy-to-use venue booking feature.
+								We offer a wide selection of venues to suit any event type and size.</p>
+
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 features4-grid sec-features4-grid">
+						<div class="features4-grid-inn">
+							<span class="fa fa-american-sign-language-interpreting icon-fea4" aria-hidden="true"></span>
+							<h5><a href="#URL">Vendor Coordination</a></h5>
+							<p>Coordinate seamlessly with vendors through our platform,
+								ensuring all services and supplies are delivered as needed for your event.</p>
+
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 features4-grid">
+						<div class="features4-grid-inn">
+							<span class="fa fa-fire-extinguisher icon-fea4" aria-hidden="true"></span>
+							<h5><a href="#URL">Event Promotion</a></h5>
+							<p>Promote your event effectively with our integrated marketing tools,
+								helping you reach a wider audience and increase attendance.</p>
+
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 features4-grid">
+						<div class="features4-grid-inn">
+							<span class="fa fa-gavel icon-fea4" aria-hidden="true"></span>
+							<h5><a href="#URL">Attendee Engagement</a></h5>
+							<p>Engage your attendees with interactive features such as live polls,
+								Q&A sessions, and networking opportunities, enhancing their overall
+								event experience.</p>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--//offer-->
+	<!-- /quote-6-->
+	<section class="w3l-quote-6">
+		<div class="quote-info py-5">
+			<div class="container py-lg-5">
+				<div class="quote-grids-info row">
+					<div class="quote-gd-left col-lg-10 pr-lg-5">
+						<h4>Professional Event Management <br> Service Provider</h4>
+						<p class="para-quote">We are dedicated to providing professional
+							event management services that exceed your expectations and ensure your event's success.</p>
+						<div class="row mt-lg-5 mt-4">
+							<div class="col-lg-4 col-md-6 sub-quote mt-4">
+								<div class="quote-sec-info">
+									<div class="appyl-sub-icon">
+										<span class="fa fa-phone"></span>
+									</div>
+									<div class="appyl-sub-icon-info">
+										<h5>Phone</h5>
+										<p><a href="tel:+142 5897555">+142
+												5897555</a></p>
+									</div>
+
+								</div>
+
+							</div>
+							<div class="col-lg-4 col-md-6 sub-quote mt-4">
+								<div class="quote-sec-info">
+									<div class="appyl-sub-icon">
+										<span class="fa fa-envelope-o"></span>
+									</div>
+									<div class="appyl-sub-icon-info">
+										<h5>Email</h5>
+										<p><a href="mailto:mail@company.com" class="mail"> mail@company.com</a></p>
+									</div>
+
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-6 sub-quote mt-4">
+<!--								<div class="quote-sec-info">-->
+<!--									<div class="appyl-sub-icon">-->
+<!--										<span class="fa fa-clock-o"></span>-->
+<!--									</div>-->
+<!--									<div class="appyl-sub-icon-info">-->
+<!--										<h5>Opening Hours</h5>-->
+<!--										<p>10.00 to 18.00</p>-->
+<!--									</div>-->
+
+<!--								</div>-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- //quote-6-->
+	<!--/testimonials-->
+	<section class="w3l-testimonials" id="testimonials">
+		<div class="testimonials py-5">
+			<div class="container py-lg-5">
+				<div class="title-content text-center">
+					<h6 class="sub-title">Testimonials</h6>
+					<h3 class="hny-title">What our Clients say</h3>
+					<p class="title-para">Lorem ipsum dolor sit amet consectetur adipisicing elit sunt in culpa qui
+						officia sed deserunt mollit anim id est laborum mollit anim id est nulla.</p>
+				</div>
+				<div class="row mt-lg-5 mt-4">
+					<div class="col-md-10 mx-auto">
+						<div class="owl-two owl-carousel owl-theme">
+							<div class="item">
+								<div class="slider-info mt-lg-4 mt-3">
+									<div class="message">
+										<p>EventMaster made planning
+											our conference a breeze. The platform is user-friendly
+											and the support team was incredibly helpful.</p>
+										<div class="name mt-4">
+											<h4>Jayant Jain</h4>
+											<p> Conference Organizer</p>
+										</div>
+									</div>
+									<div class="img-circle">
+										<img src="{% static 'images/c1.jpg' %}" class="img-fluid testimonial-img" alt="client">
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="slider-info mt-lg-4 mt-3">
+									<div class="message">
+										<p>Thanks to EventMaster, our community event was a huge success.
+											We couldn't have done it without their expert services and
+											seamless coordination tools.</p>
+										<div class="name mt-4">
+											<h4>Saanvi Gupta</h4>
+											<p>Community Event Planner</p>
+										</div>
+									</div>
+									<div class="img-circle">
+										<img src="{% static 'images/c2.jpg' %}" class="img-fluid testimonial-img" alt="client">
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="slider-info mt-lg-4 mt-3">
+									<div class="message">
+										<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sit id
+											accusantium
+											officia quod quasi necessitatibus perspiciatis Harum error provident
+											quibusdam tenetur.</p>
+										<div class="name mt-4">
+											<h4> Lakshay Jain</h4>
+											<p>Example Company</p>
+										</div>
+									</div>
+									<div class="img-circle">
+										<img src="{% static 'images/c3.jpg' %}" class="img-fluid testimonial-img" alt="client">
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="slider-info mt-lg-4 mt-3">
+
+									<div class="message">
+										<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sit id
+											accusantium
+											officia quod quasi necessitatibus perspiciatis Harum error provident
+											quibusdam tenetur.</p>
+										<div class="name mt-4">
+											<h4>Charu Oberoi</h4>
+											<p>Example Company</p>
+										</div>
+									</div>
+									<div class="img-circle">
+										<img src="{% static 'images/c4.jpg' %}" class="img-fluid testimonial-img" alt="client">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+	<!--//testimonials-->
+	<!-- footer-66 -->
+	<footer class="w3l-footer-66">
+		<div class="footer-28-main">
+			<div class="container">
+				<div class="row footer-hny-top">
+					<div class="col-lg-6 footer-logo pl-lg-0">
+						<h2><a class="navbar-brand" href="index.html">Event<span>Master</span></a></h2>
+						<!-- if logo is image enable this   
+						<a class="navbar-brand" href="#index.html">
+							<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+						</a> -->
+					</div>
+					<div class="col-lg-6 main-social-footer-28 pr-lg-0">
+						<a href="https://www.facebook.com/login.php/"><span class="fab fa-facebook"></a>
+						<a href="https://twitter.com/login"><span class="fab fa-twitter"></a>
+						<a href="https://accounts.google.co.in/"><span class="fab fa-google-plus"></a>
+						<a href="https://www.linkedin.com/login"><span class="fab fa-linkedin"></a>
+						<a href="https://www.instagram.com/accounts/login/?hl=en"><span class="fab fa-instagram"></a>
+					</div>
+				</div>
+				<div class="row footer-top-28">
+					<div class="col-lg-2 col-md-6 footer-list-28 pl-lg-0">
+						<h6 class="footer-title-28">Extra Links</h6>
+						<ul>
+							<li><a href="about.html">About Company</a></li>
+							<li><a href="services.html">Our Services</a></li>
+							<li><a href="portfolio.html">Recent projects list</a></li>
+							<li><a href="blog.html">Latest News blog</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-5 col-md-6 footer-list-28">
+						<h6 class="footer-title-28">list of Services</h6>
+						<ul class="d-grid footer-column-2">
+							<li><a href="services.html">Venue Booking</a></li>
+							<li><a href="services.html">Vendor Management</a></li>
+							<li><a href="services.html">Event Promotion</a></li>
+							<li><a href="services.html">Ticketing and Registration</a></li>
+							<li><a href="services.html">Schedule Management</a></li>
+							<li><a href="services.html">Attendee Engagement</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-2 col-md-6 footer-list-28">
+						<h6 class="footer-title-28">Support</h6>
+						<ul>
+							<li><a href="#link">Documentation</a></li>
+							<li><a href="#link">Privacy policy</a></li>
+							<li><a href="#link">Terms of service</a></li>
+							<li><a href="#link">24/7 support</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-3 col-md-6 footer-list-28 pr-lg-0">
+<!--						<h6 class="footer-title-28">Working Hours</h6>-->
+<!--						<ul class="working-hours">-->
+<!--							<li><span>Monday</span> : 8AM - 6AM</li>-->
+<!--							<li><span>Tuesday</span> : 8AM - 6AM</li>-->
+<!--							<li><span>Wednesday</span> : 8AM - 6AM</li>-->
+<!--							<li><span>Thursday - Friday </span> : 8AM - 6AM</li>-->
+<!--							<li><span>Sunday</span> : Closed</li>-->
+<!--						</ul>-->
+					</div>
+				</div>
+			</div>
+			<div class="midd-footer-28 align-center">
+				<p class="copy-footer-28">© 2020 EventMaster. All rights reserved | Designed by <a
+						href="https://w3layouts.com">W3layouts</a></p>
+			</div>
+		</div>
+		<!-- move top -->
+		<button onclick="topFunction()" id="movetop" title="Go to top">
+			<span class="fa fa-angle-up"></span>
+		</button>
+		<script>
+			// When the user scrolls down 20px from the top of the document, show the button
+			window.onscroll = function () {
+				scrollFunction()
+			};
+
+			function scrollFunction() {
+				if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+					document.getElementById("movetop").style.display = "block";
+				} else {
+					document.getElementById("movetop").style.display = "none";
+				}
+			}
+
+			// When the user clicks on the button, scroll to the top of the document
+			function topFunction() {
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+			}
+		</script>
+		<!-- /move top -->
+
+	</footer>
+	<!--//footer-66 -->
+</body>
+
+</html>
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<!-- disable body scroll which navbar is in active -->
+
+<!--//-->
+<script>
+	$(function () {
+		$('.navbar-toggler').click(function () {
+			$('body').toggleClass('noscroll');
+		})
+	});
+</script>
+<!--/scroll-down-JS-->
+<!-- for blog carousel slider -->
+<script src="{% static 'js/owl.carousel.js' %}"></script>
+<!-- script for banner slider-->
+<script>
+	$(document).ready(function () {
+		$('.owl-one').owlCarousel({
+			loop: true,
+			margin: 0,
+			nav: false,
+			responsiveClass: true,
+			autoplay: false,
+			autoplayTimeout: 5000,
+			autoplaySpeed: 1000,
+			autoplayHoverPause: false,
+			responsive: {
+				0: {
+					items: 1,
+					nav: false
+				},
+				480: {
+					items: 1,
+					nav: false
+				},
+				667: {
+					items: 1,
+					nav: true
+				},
+				1000: {
+					items: 1,
+					nav: true
+				}
+			}
+		})
+	})
+</script>
+<!-- //testimonials owlcarousel -->
+<script>
+	$(document).ready(function () {
+		$('.owl-two').owlCarousel({
+			loop: true,
+			margin: 30,
+			nav: false,
+			responsiveClass: true,
+			autoplay: false,
+			autoplayTimeout: 5000,
+			autoplaySpeed: 1000,
+			autoplayHoverPause: false,
+			responsive: {
+				0: {
+					items: 1,
+					nav: false
+				},
+				480: {
+					items: 1,
+					nav: false
+				},
+				667: {
+					items: 1,
+					nav: false
+				},
+				1000: {
+					items: 1,
+					nav: false
+				}
+			}
+		})
+	})
+</script>
+<!-- //script for Testimonials-->
+<!-- //script -->
+
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
